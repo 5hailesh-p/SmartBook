@@ -5,8 +5,8 @@ import Card from 'react-bootstrap/Card';
 const ServicesCard = (props) => {
     return (
         <>
-            <Card className='shadow-lg d-flex flex-row'>
-                <Card.Img className='w-25' variant="top" src={props.data.img} alt={props.data.title + ' Image'} />
+            <Card className='shadow-lg d-flex flex-row overflow-hidden'>
+                <Card.Img className='w-25 rounded-3' variant="top" src={props.data.img} alt={props.data.title + ' Image'} />
                 <Card.Body className='w-75'>
                     <Card.Title>{props.data.title}</Card.Title>
                     <Card.Text>

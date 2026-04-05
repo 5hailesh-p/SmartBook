@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import Header from '../../components/Header'
 import { Col, Container, Row } from 'react-bootstrap';
 import ServicesCard from '../../components/ServicesCard';
+import axios from 'axios';
 
 
 const Home = () => {
+
+  const [data, setData] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://127.0.0.1:8000/api/appointments/")
+        setData(res.data)
+        console.log(res.data);
+        
+      } catch (err) {
+        console.log(err);
+
+      }
+      finally{
+        // console.log(JSON.stringify(data))
+
+      }
+    }
+    fetchData()
+  }, [])
   const services = [
     {
       title: 'Clinic',
